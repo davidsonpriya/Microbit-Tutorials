@@ -2,7 +2,8 @@
 
 ## Add neopixel extension
 Click on **Extensions** --> In search bar, enter **neopixel** --> 
-Under search results, look for ** neopixel - A Neo-Pixel package for pxt-microbit **.
+Under search results, look for **`` neopixel - A Neo-Pixel package for pxt-microbit ``**.
+
 ## Create variable item
 ```blocks
 let LED = 0
@@ -13,6 +14,7 @@ let LED = 0
 let LED = 0
 let item = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 ```
+
 ## Complete code
 ```blocks
 let LED = 0
