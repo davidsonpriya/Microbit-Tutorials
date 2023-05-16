@@ -1,20 +1,21 @@
 # DJ Lights
 
-## Add neopixel extension
-Click on **Extensions** --> In search bar, enter **neopixel** --> 
-Under search results, look for **`` neopixel - A Neo-Pixel package for pxt-microbit ``**.
+## Add the Neopixel extension
+Click on ``||+ Extensions||``. In search bar, enter **neopixel**  
+<br> Under search results, look for **`` neopixel - A Neo-Pixel package for pxt-microbit ``**.
 
-## Create variable ``||LED||``
-Click on ``||Variable||`` to create a new variable **LED**
+## Create a variable 'LED'
+Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
+Enter **``New Variable name``** as **LED**
 
-## Create variable ``||item||``
+## Create a second variable 'item'
 Click on ``||Variable||`` to create a new variable **item**
 ```blocks
 let item = 0
 ```
 
-## Set the value of ``||item||`` 
-Read the value from ``||DigitalPin.P1||`` for LED strip. 
+## Set the value of 'item' 
+Read the value from **Pin** ``||DigitalPin.P1||`` for LED strip. <br>
 We have 7 LEDs on our strip and we are setting the ``||item||`` to ``||NeoPixelMode.RGB mode||`` (Red, Green, Blue)
 ```blocks
 let item = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
