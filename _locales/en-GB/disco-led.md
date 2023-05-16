@@ -4,12 +4,8 @@
 Click on ``||+ Extensions||``. In search bar, enter **neopixel**  
 <br> Under search results, look for **`` neopixel - A Neo-Pixel package for pxt-microbit ``**.
 
-## Create a variable 'LED'
-Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
-Enter  **``New Variable name``**  as **'LED'**
-
 ## Getting the LED strip 
-Click on ``||Neopixel: Neopixel||`` to get the ``||Neopixel:set strip to||`` block. Place it in ``||Start||`` block
+Click on ``||Neopixel: Neopixel||`` to get the ``||Neopixel:set strip to||`` block. Place it in ``||basic.start||`` block
 ```blocks
 let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
 ```
@@ -27,6 +23,7 @@ let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 ```
 ## Setting the colour mode for the LED strip
 We are setting the ``||strip||`` to ``||NeoPixelMode.RGB mode||`` with GRB format (Green, Red, Blue)
+<br> You may not need to change it.
 ```blocks
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 ```
@@ -35,15 +32,31 @@ let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 Add the ``||Neopixel: strip.clear()||`` block in ``||basic.forever||``
 
 ```blocks
-let LED = 0
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 basic.forever(
     function () {
     strip.clear()
 })
 ```
-## Use map
-In the ``||Pin:map||`` block, put the ``||NeoPixel.Analog read P1||``
+## Create a variable 'LED'
+Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
+Enter  **``New Variable name``**  as **'LED'**
+
+## Set the value for 'LED'
+From ``||Variable||`` get the ``||Variable:set||`` block and place it under ``||basic.forever||`` make sure the variable is ``||Variable: LED||``
+```blocks
+let LED = 0
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+basic.forever(
+    function () {
+     strip.clear()
+     LED = 0
+})
+```
+
+## Use map to match the sound with the LEDs
+Under ``||Advanced||`` find ``||Pins||`` , get the ``||Pin:map||`` block. 
+<br>From ``||Input||``, get the ``||Input: soundLevel||`` block and place it next to map.
 
 ```blocks
 let LED = 0
@@ -58,12 +71,16 @@ basic.forever(
      0,
      7
      )
+
 })
 ```
 
-## Use map
-In the ``||math:map||`` block, put the ``||NeoPixel.Analog read P1||``
-
+## Have the LED strip to have DJ effect
+** A little tricky **
+We will pick up the sound and match the levels to have DJ Light effect.
+<br> From ``||Neopixel||`` get ``||Neopixel: show Rainbow||`` and ``||Neopixel: strip.range||`` blocks. 
+<br> In ``||Neopixel: show Rainbow||`` block, replace ``||strip||`` with ** "strip range from 0 with 4 LEDs"** by dragging and dropping. 
+<br> change the values as shown.
 ```blocks
 let LED = 0
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
@@ -80,9 +97,8 @@ basic.forever(
     strip.range(0, LED).showRainbow(1, 255)
 })
 ```
-
-## Use map
-In the ``||math:map||`` block, put the ``||NeoPixel.Analog read P1||``
+## Show the LED to have a DJ effect
+Add ``||NeoPixel: show||``
 
 ```blocks
 let LED = 0
