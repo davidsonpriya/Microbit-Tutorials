@@ -78,9 +78,9 @@ basic.forever(
 ## Have the LED strip to have DJ effect
 ** A little tricky **
 We will pick up the sound and match the levels to have DJ Light effect.
-<br> From ``||Neopixel||`` get ``||Neopixel: show Rainbow||`` and ``||Neopixel: strip.range||`` blocks. 
+<br> From ``||Neopixel||`` get ``||Neopixel: show rainbow||`` and ``||Neopixel: range||`` blocks. 
 <br> In ``||Neopixel: show Rainbow||`` block, replace ``||strip||`` with ** "strip range from 0 with 4 LEDs"** by dragging and dropping. 
-<br> change the values as shown.
+<br> Change the values as shown.
 ```blocks
 let LED = 0
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
@@ -98,7 +98,7 @@ basic.forever(
 })
 ```
 ## Show the LED to have a DJ effect
-Add ``||NeoPixel: show||``
+Add ``||NeoPixel: show||`` in the ``||Forever||`` block.
 
 ```blocks
 let LED = 0
