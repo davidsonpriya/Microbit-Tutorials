@@ -10,14 +10,14 @@ Click on ``||Neopixel: Neopixel||`` to get the ``||Neopixel:set strip to||`` blo
 let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
 ```
 ## Setting where the LED strip is connected
-In your code ``||Neopixel: DigitalPin.P0||`` has P0 where it is expecting LED. 
+In your code ``||Neopixel: Neopixel at pin P0||`` means that LED is expected at Pin P0. 
 <br>You will be connecting your LED to Pin P1 on the expansion board. <br>
-Change the pin number from P0 to P1.
+Change the pin P0 to pin P1.
 ```blocks
 let strip = neopixel.create(DigitalPin.P1, 24, NeoPixelMode.RGB)
 ```
 ## Setting the number of LEDs in the strip
-We have 7 LEDs on our strip so change 24 to 7. <br> 
+We have 7 LEDs on our strip so change 24 leds to 7 leds. <br> 
 ```blocks
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 ```
@@ -39,11 +39,11 @@ basic.forever(
 })
 ```
 ## Create a variable 'LED'
-Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
+Click on ``||Variables||`` then ``||Variables: Make a Variable||``. <br>
 Enter  **``New Variable name``**  as **'LED'**
 
 ## Set the value for 'LED'
-From ``||Variable||`` get the ``||Variable:set||`` block and place it under ``||basic.forever||`` make sure the variable is ``||Variable: LED||``
+From ``||Variables||`` get the ``||Variables:set||`` block and place it under ``||basic.forever||`` make sure the variable is ``||Variable: LED||``
 ```blocks
 let LED = 0
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
@@ -55,7 +55,7 @@ basic.forever(
 ```
 
 ## Use map to match the sound with the LEDs
-Under ``||Advanced||`` find ``||Pins||`` , get the ``||Pin:map||`` block. 
+Under ``||Advanced||`` find ``||Pins||`` , get the ``||Pins:map||`` block. 
 <br>From ``||Input||``, get the ``||Input: soundLevel||`` block and place it next to map.
 
 ```blocks
