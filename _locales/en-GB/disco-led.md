@@ -6,38 +6,89 @@ Click on ``||+ Extensions||``. In search bar, enter **neopixel**
 
 ## Create a variable 'LED'
 Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
-Enter **``New Variable name``** as **LED**
+Enter  **``New Variable name``**  as **'LED'**
 
-## Create a second variable 'item'
-Click on ``||Variable||`` to create a new variable **item**
+## Setting the value for LED strip 
+Click on ``||Neopixel||`` to get the ``||Neopixel:set strip to||`` block. Place it in ``||Start||`` block
+<br>**Read and make changes carefully** <br>
+Read the value from the **Pin** you connected your LED strip to. Let's assume it is **P1**, ensure it is reflected in your code as ``||Neopixel: DigitalPin.P1||`` . <br>
+We have 7 LEDs on our strip so change 24 to 7. <br> 
+We are setting the ``||strip||`` to ``||NeoPixelMode.RGB mode||`` with GRB format (Green, Red, Blue)
 ```blocks
-let item = 0
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 ```
 
-## Set the value of 'item' 
-Read the value from **Pin** ``||DigitalPin.P1||`` for LED strip. <br>
-We have 7 LEDs on our strip and we are setting the ``||item||`` to ``||NeoPixelMode.RGB mode||`` (Red, Green, Blue)
+## Start with a clean display
+Add the ``||Neopixel: strip.clear()||`` block in ``||basic.forever||``
+
 ```blocks
-let item = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+let LED = 0
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+basic.forever(
+    function () {
+    strip.clear()
+})
+```
+## Use map
+In the ``||Pin:map||`` block, put the ``||NeoPixel.Analog read P1||``
+
+```blocks
+let LED = 0
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+basic.forever(
+    function () {
+     strip.clear()
+     LED = pins.map(
+     input.soundLevel(),
+     0,
+     70,
+     0,
+     7
+     )
+})
 ```
 
 ## Use map
 In the ``||math:map||`` block, put the ``||NeoPixel.Analog read P1||``
 
-## Complete code
 ```blocks
 let LED = 0
-let item = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
-basic.forever(function () {
-    LED = pins.map(
-    input.soundLevel(),
-    0,
-    70,
-    0,
-    7
-    )
-    item.clear()
-    item.range(0, LED).showRainbow(1, 255)
-    item.show()
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+basic.forever(
+    function () {
+     strip.clear()
+     LED = pins.map(
+     input.soundLevel(),
+     0,
+     70,
+     0,
+     7
+     )
+    strip.range(0, LED).showRainbow(1, 255)
 })
 ```
+
+## Use map
+In the ``||math:map||`` block, put the ``||NeoPixel.Analog read P1||``
+
+```blocks
+let LED = 0
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+basic.forever(
+    strip.clear()
+    function () {
+     LED = pins.map(
+     input.soundLevel(),
+     0,
+     70,
+     0,
+     7
+     )
+    strip.range(0, LED).showRainbow(1, 255)
+    strip.show()
+})
+```
+
+## Connect microbit and download
+Connect your microbit and download the code. <br> 
+Make sure it is not simply getting downloaded on your device.
