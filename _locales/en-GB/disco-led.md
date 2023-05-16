@@ -4,7 +4,8 @@
 Click on **Extensions** --> In search bar, enter **neopixel** --> 
 Under search results, look for **`` neopixel - A Neo-Pixel package for pxt-microbit ``**.
 
-## Create variable item
+## Create variable LED
+Click on ``Variable`` to create a new variable **LED**
 ```blocks
 let LED = 0
 ```
