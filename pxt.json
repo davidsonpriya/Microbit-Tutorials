@@ -12,7 +12,8 @@
         "main.ts",
         "README.md",
         "disco-led.md",
-        "_locales/en-GB/disco-led.md"
+        "_locales/en-GB/disco-led.md",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
