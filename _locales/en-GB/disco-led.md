@@ -104,8 +104,8 @@ Add ``||NeoPixel: show||`` in the ``||Forever||`` block.
 let LED = 0
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
 basic.forever(
-    strip.clear()
     function () {
+     strip.clear()
      LED = pins.map(
      input.soundLevel(),
      0,
