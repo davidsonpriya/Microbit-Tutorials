@@ -8,11 +8,24 @@ Click on ``||+ Extensions||``. In search bar, enter **neopixel**
 Click on ``||Variable||`` then ``||Variable: Make a Variable||``. <br>
 Enter  **``New Variable name``**  as **'LED'**
 
-## Setting the value for LED strip 
-Click on ``||Neopixel||`` to get the ``||Neopixel:set strip to||`` block. Place it in ``||Start||`` block
-<br>**Read and make changes carefully** <br>
-Read the value from the **Pin** you connected your LED strip to. Let's assume it is **P1**, ensure it is reflected in your code as ``||Neopixel: DigitalPin.P1||`` . <br>
+## Getting the LED strip 
+Click on ``||Neopixel: Neopixel||`` to get the ``||Neopixel:set strip to||`` block. Place it in ``||Start||`` block
+```blocks
+let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB)
+```
+## Setting where the LED strip is connected
+In your code ``||Neopixel: DigitalPin.P0||`` has P0 where it is expecting LED. 
+<br>You will be connecting your LED to Pin P1 on the expansion board. <br>
+Change the pin number from P0 to P1.
+```blocks
+let strip = neopixel.create(DigitalPin.P1, 24, NeoPixelMode.RGB)
+```
+## Setting the number of LEDs in the strip
 We have 7 LEDs on our strip so change 24 to 7. <br> 
+```blocks
+let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
+```
+## Setting the colour mode for the LED strip
 We are setting the ``||strip||`` to ``||NeoPixelMode.RGB mode||`` with GRB format (Green, Red, Blue)
 ```blocks
 let strip = neopixel.create(DigitalPin.P1, 7, NeoPixelMode.RGB)
